@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="vue.js"></script>
+   <link href="style.css" type="text/css" rel="stylesheet">
+  <style>
+    #shop{
+      background-color: pink;
+    }div{
+      width: 98%;
+      height: 100px;
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+  <header id="shop">
+    <h1 align="center">Shop Android</h1>
+  </header>
+  
+  <div id="app" align="center">
+    <h2><center>Card({{Cart.length}})</center></h2>
+    <button type="submit" @click="bayar(i)">bayar</button>
+     <table border="50px" align="center">
+       <td v-for="(product,i) in products">{{product.id}}<br/><img :src="product.img"><br />{{product.name}}<br/>{{product.price}}<br>{{product.stock}}<br/>
+       <button type="submit" @click="addToCard(i)">BUY</button></td>
+     </td>
+  </div>
+ 
+<script>
+    var app = new Vue({
+      el: '#app',
+        data: {   
+          products:[
+          {
+            id:1,
+            img:"foto/OPPO.jpg",
+            name:"merk: i-phone",
+            price:3000000,
+            stock:15
+          },
+          {
+            id:2,
+            img:"foto/OPPOF9.jpg", 
+            name:"merk: OPPO",
+            price:2500000,
+            stock:20
+          },
+          {
+            id:3,
+             img:"foto/Vivo.jpg",
+            name:"merk: advan",
+            price:1000000,
+            stock:50 
+          },
+          {
+            id:4,
+            img:"foto/Xiaomi.jpg",
+            name:"merk: asus",
+            price:1500000,
+            stock:30
+          },
+          {
+            id:5,
+            img:"foto/Xiaomis1.jpg",
+            name:"merk: lenovo",
+            price:2000000,
+            stock:40 
+          },
+        ],Cart:[],harga:0
+      },
+      methods: {
+        addToCard(i){
+         
+        
+      if(this.products[i].stock > 0){
+         this.products[i].stock=this.products[i].stock-1;
+         this.harga=this.harga+this.products[i].price;
+         this.Cart=this.Cart+1;
+      }
+      else{
+        alert("sorry bro barang abis")
+      }
+      },
+      bayar(i){
+          if(this.Cart == 0){
+        alert("udah ditammbahkan ke keranjang?")
+      }else{
+         alert("anda akan membayar sebesar"+(this.harga))
+        }
+      }
+    }
+    })
+</script>
+</body>
+</html>

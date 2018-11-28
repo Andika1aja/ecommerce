@@ -1,0 +1,27 @@
+body{width: 100%;
+	background-color: gold;
+	background-image: url("d.jpeg");
+    background-size: 350 px;
+}
+header,div,aside{
+	boeder :1px;
+	border-style: solid;
+	border-color: red;
+	color: black;
+	font-size: 20pt;
+	text-align: center;
+	border-radius:20px;
+	margin:10px;
+}
+header{
+	height: 120px;
+	width: 98%;
+}
+div{
+	width: 98%;
+	height: 100px;
+}
+aside{
+	width: 98%;
+	height: 100px;
+}
